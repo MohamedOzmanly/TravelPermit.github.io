@@ -25,7 +25,7 @@
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
             results = regex.exec(url);
        // if (!results) return null;
-       // if (!results[2]) return '';
+        if (!results[13]) return '';
         return decodeURIComponent(results[].replace(/\+/g, ' '));
       }
       
