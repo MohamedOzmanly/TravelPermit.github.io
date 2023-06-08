@@ -10,7 +10,6 @@
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
             results = regex.exec(url);
         if (!results) return null;
-        if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
       }
       
@@ -32,7 +31,7 @@
       <tbody>
         <tr>
           <td><h1>Permission's Date</h1></td>
-          <td><h1 id="param2"></h1></td>
+          <td><h1><span id="param1"></span></h1></td>
           <td><h1>تاريخ السفينة</h1></td>
         </tr>
         <tr>
