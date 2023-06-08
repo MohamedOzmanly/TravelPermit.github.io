@@ -1,7 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Travel Permit URL</title>
+    <title>Travel Permit</title>
+    <style>
+      table {
+        margin: 0 auto;
+        width: 50%;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
     <script>
       // Extract the parameters from the URL
       function getParameterByName(name, url) {
@@ -9,89 +24,122 @@
         name = name.replace(/[\[\]]/g, '\\$&');
         var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
             results = regex.exec(url);
-        if (!results) return null;
+       // if (!results) return null;
+        if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
       }
       
       // Display the parameters in the HTML
       window.onload = function() {
-        var param1 = getParameterByName('param1');
-        var param2 = getParameterByName('param2');
-        var param3 = getParameterByName('param3');
+        var permitionNo = getParameterByName('permitionNo');
+        var shipName = getParameterByName('shipName');
+        var shipType = getParameterByName('shipType');
+        var ata = getParameterByName('ata');
+        var nationality = getParameterByName('nationality');
+        var captainName = getParameterByName('captainName');
+        var agentName = getParameterByName('agentName');
+        var previousPort = getParameterByName('previousPort');
+        var nextPort = getParameterByName('nextPort');
+        var emptyOrLoaded = getParameterByName('emptyOrLoaded');
+        var grt = getParameterByName('grt');
+        var permitionTillDate = getParameterByName('permitionTillDate');
+        var permitionDate = getParameterByName('permitionDate');
+        var permition_year = getParameterByName('permition_year');
         
-        document.getElementById('param1').innerHTML = param1;
-        document.getElementById('param2').innerHTML = param2;
-        document.getElementById('param3').innerHTML = param3;
+        document.getElementById('permitionNo').innerHTML = permitionNo;
+        document.getElementById('shipName').innerHTML = shipName;
+        document.getElementById('shipType').innerHTML = shipType;
+        document.getElementById('ata').innerHTML = ata;
+        document.getElementById('nationality').innerHTML = nationality;
+        document.getElementById('captainName').innerHTML = captainName;
+        document.getElementById('agentName').innerHTML = agentName;
+        document.getElementById('previousPort').innerHTML = previousPort;
+        document.getElementById('nextPort').innerHTML = nextPort;
+        document.getElementById('emptyOrLoaded').innerHTML = emptyOrLoaded;
+        document.getElementById('grt').innerHTML = grt;
+        document.getElementById('permitionTillDate').innerHTML = permitionTillDate;
+        document.getElementById('permitionDate').innerHTML = permitionDate;
+        document.getElementById('permition_year').innerHTML = permition_year;
       };
     </script>
   </head>
   <body>
-    <h1>Travel Permit URL</h1>
      <table>
+     <thead>
+         <tr>
+           <th><h1>تصريح السفر</h1></th>
+         </tr>
+        <tr>
+          <th><h1>Departure Permission</h1></th>          
+         </tr>   
+          <tr>
+          <th><h1>(<span id="permitionNo"></span>-<span id="permition_year"></span>)</h1></th>          
+         </tr> 
+      </thead>
       <tbody>
         <tr>
           <td><h1>Permission's Date</h1></td>
-          <td><h1><span id="param1"></span></h1></td>
-          <td><h1>تاريخ التصريح</h1></td>
+          <td><h1><span id="permitionDate"></span></h1></td>
+          <td><h1>تاريخ السفينة</h1></td>
         </tr>
         <tr>
           <td><h1>Ship's Name</h1></td>
-          <td>Row 2, Cell 2</td>
+          <td><h1><span id="shipName"></span></h1></td>
           <td><h1>أسم السفينة</h1></td>
         </tr>
         <tr>
           <td><h1>Ship Type</h1></td>
-          <td>Row 3, Cell 2</td>
+          <td><h1><span id="shipType"></span></h1></td>
           <td><h1>نوع السفينة</h1></td>
         </tr>
         <tr>
           <td><h1>Ship's Arrival</h1></td>
-          <td>Row 4, Cell 2</td>
+          <td><h1><span id="ata"></span></h1></td>
           <td><h1>تاريخ وصول السفينة</h1></td>
         </tr>
         <tr>
           <td><h1>Nationality</h1></td>
-          <td>Row 5, Cell 2</td>
+          <td><h1><span id="nationality"></span></h1></td>
           <td><h1>الجنسية</h1></td>
         </tr>
         <tr>
           <td><h1>Master's Name</h1></td>
-          <td>Row 6, Cell 2</td>
+          <td><h1><span id="captainName"></span></h1></td>
           <td><h1>أسم الربان</h1></td>
         </tr>
         <tr>
           <td><h1>Agent's Name</h1></td>
-          <td>Row 7, Cell 2</td>
+          <td><h1><span id="agentName"></span></h1></td>
           <td><h1>أسم التوكيل</h1></td>
         </tr>
         <tr>
           <td><h1>Last Port</h1></td>
-          <td>Row 8, Cell 2</td>
+          <td><h1><span id="previousPort"></span></h1></td>
           <td><h1>الميناء السابق</h1></td>
         </tr>
         <tr>
           <td><h1>Next Port</h1></td>
-          <td>Row 9, Cell 2</td>
+          <td><h1><span id="nextPort"></span></h1></td>
           <td><h1>الميناء التالي</h1></td>
         </tr>
         <tr>
           <td><h1>Loaded/Unloaded</h1></td>
-          <td>Row 10, Cell 2</td>
+          <td><h1><span id="emptyOrLoaded"></span></h1></td>
           <td><h1>مشحونة/فارغة</h1></td>
         </tr>
         <tr>
           <td><h1>Gross Tonnage</h1></td>
-          <td>Row 11, Cell 2</td>
+          <td><h1><span id="grt"></span></h1></td>
           <td><h1>الحمولة الكلية</h1></td>
         </tr>
         <tr>
           <td><h1>Valid up to</h1></td>
-          <td>Row 12, Cell 2</td>
+          <td><h1><span id="permitionTillDate"></span></h1></td>
           <td><h1>التصريح نافذ مفعوله حتي</h1></td>
         </tr>
         <tr>
           <td><h1>Issued By</h1></td>
-          <td>Row 13, Cell 2</td>
+          <td><h1><span id="nextPort"></span></h1></td>
           <td><h1>محرر البيان</h1></td>
         </tr>
       </tbody>
