@@ -26,6 +26,7 @@
             results = regex.exec(url);
        // if (!results) return null;
        // if (!results[13]) return '';
+        alert(results);
         return decodeURIComponent(results[].replace(/\+/g, ' '));
       }
       
