@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel Permit URL</title>
+    <script>
+      // Extract the parameters from the URL
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+      }
+      
+      // Display the parameters in the HTML
+      window.onload = function() {
+        var param1 = getParameterByName('param1');
+        var param2 = getParameterByName('param2');
+        var param3 = getParameterByName('param3');
+        
+        document.getElementById('param1').innerHTML = param1;
+        document.getElementById('param2').innerHTML = param2;
+        document.getElementById('param3').innerHTML = param3;
+      };
+    </script>
+  </head>
+  <body>
+    <h1>Travel Permit URL</h1>
+    <p>Param 1: <span id="param1"></span></p>
+    <p>Param 2: <span id="param2"></span></p>
+    <p>Param 3: <span id="param3"></span></p>
+  </body>
+</html>
