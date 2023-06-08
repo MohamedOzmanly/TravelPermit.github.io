@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Travel Permit</title>
     <style>
@@ -45,6 +46,8 @@
         var permitionTillDate = getParameterByName('permitionTillDate');
         var permitionDate = getParameterByName('permitionDate');
         var permition_year = getParameterByName('permition_year');
+        var centralAuthority = getParameterByName('centralAuthority');
+        var TaxRegister = getParameterByName('TaxRegister');
         
         document.getElementById('permitionNo').innerHTML = permitionNo;
         document.getElementById('shipName').innerHTML = shipName;
@@ -60,10 +63,20 @@
         document.getElementById('permitionTillDate').innerHTML = permitionTillDate;
         document.getElementById('permitionDate').innerHTML = permitionDate;
         document.getElementById('permition_year').innerHTML = permition_year;
+        document.getElementById('centralAuthority').innerHTML = centralAuthority;
+        document.getElementById('TaxRegister').innerHTML = TaxRegister;
       };
     </script>
   </head>
   <body>
+  <TABLE cellSpacing="0" cellPadding="0" width="99%" align="center" border="0">
+		<TR>
+			<TD align="right" style=" text-decoration: underline; font: bold 12px;"><DIV id="centralAuthority"></DIV></TD>
+		</tr>
+		<tr> 
+			<TD align="right" dir="ltr" style="font: bold 12px;"><DIV id="TaxRegister"></DIV></TD>
+		</tr>
+	</TABLE>
      <table>
      <thead>
          <tr>
